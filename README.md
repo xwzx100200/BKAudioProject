@@ -1,13 +1,13 @@
 # BKAudioProject
 
 该项目是包括了音频的录制、编码（AAC）、解码（PCM）全部过程；是使用AVFoundation、AudioToolBox的框架写的OC代码。
-####一、流程说明
+#### 一、流程说明
 该项目是包括了音频的录制、编码（AAC）、解码（PCM）全部过程；是使用AVFoundation、AudioToolBox的框架写的OC代码。
 项目通过苹果API获取的是PCM流数据，这是一个最原始的模拟信号转数字信号的数据，可以直接播放的。当是由于是原始的数据，非常大，不利于传输，所以要压缩，去掉一些冗余的数据。
 所谓的编码就是把原始的PCM数据压缩成其他格式的数据，比如AAC、MP3等。一般都是编码成AAC数据（AAC数据在相同的压缩条件下比MP3好）。
 而播放AAC数据就是把AAC解码还原成PCM数据进行播放。
-####二、代码Api说明
-#####1、采集流程Api说明
+#### 二、代码Api说明
+##### 1、采集流程Api说明
 AudioComponent：表示音频组件。一种音频组件通常由 type、subtype、manufacturer 三属性来唯一标识。
 AudioComponentDescription：表示音频组件的描述。其中 type、subtype、manufacturer 三属性组合起来标识一种音频组件。
 ```
@@ -55,7 +55,7 @@ AudioOutputUnitStop(...)：关闭一个 I/O AudioUnit，同时会关闭与之连
     OSStatus stopStatus = AudioOutputUnitStop(weakSelf.audioCaptureInstance);
 }
 ```
-#####2、编解码流程Api说明
+##### 2、编解码流程Api说明
 AudioStreamBasicDescription：用于描述音频流数据格式信息，比如采样位深、声道数、采样率、每帧字节数、每包帧数、每包字节数、格式标识等。
 ```
 // 1、设置音频编码器输出参数。其中一些参数与输入的音频数据参数一致。
